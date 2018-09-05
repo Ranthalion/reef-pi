@@ -3,9 +3,10 @@ package equipment
 import (
 	"encoding/json"
 	"fmt"
+	"log"
+
 	"github.com/reef-pi/reef-pi/controller/connectors"
 	"github.com/reef-pi/reef-pi/controller/types"
-	"log"
 )
 
 const Bucket = types.EquipmentBucket
@@ -77,6 +78,13 @@ func (c *Controller) Create(eq Equipment) error {
 
 func (c *Controller) Update(id string, eq Equipment) error {
 	eq.ID = id
+
+	oldEq, err := c.Get(id)
+	if err != nil {
+		return err
+	}
+	c.releaseOutlet(oldEq.Outlet)
+
 	if err := c.store.Update(Bucket, id, eq); err != nil {
 		return err
 	}
@@ -96,15 +104,8 @@ func (c *Controller) Delete(id string) error {
 	if inUse {
 		return fmt.Errorf("equipment is in use")
 	}
-	outlet, err := c.outlets.Get(eq.Outlet)
-	if err != nil {
-		return err
-	}
-	outlet.Equipment = ""
-	if err := c.store.Delete(Bucket, id); err != nil {
-		return nil
-	}
-	return c.outlets.Update(outlet.ID, outlet)
+	c.releaseOutlet(eq.Outlet)
+	return c.store.Delete(Bucket, id)
 }
 
 func (c *Controller) synEquipment() {
@@ -118,4 +119,13 @@ func (c *Controller) synEquipment() {
 			log.Printf("ERROR: Failed to sync equipment:%s . Error:%s\n", eq.Name, err.Error())
 		}
 	}
+}
+
+func (c *Controller) releaseOutlet(outletID string) error {
+	outlet, err := c.outlets.Get(outletID)
+	if err != nil {
+		return err
+	}
+	outlet.Equipment = ""
+	return c.outlets.Update(outlet.ID, outlet)
 }
