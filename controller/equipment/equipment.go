@@ -37,26 +37,22 @@ func (c Controller) List() ([]Equipment, error) {
 }
 
 func (c *Controller) Create(eq Equipment) error {
-	ok := false
 	var outlet connectors.Outlet
-	outlets, err := c.outlets.List()
+	outlet, err := c.outlets.Get(eq.Outlet)
+
 	if err != nil {
 		log.Println("ERROR: Failed to load outlet list. Error:", err)
 		return err
 	}
-	for _, o := range outlets {
-		if o.ID == eq.Outlet {
-			ok = true
-			outlet = o
-			break
-		}
-	}
-	if !ok {
+
+	if outlet.ID == "" {
 		return fmt.Errorf("Outlet name %s not present", eq.Outlet)
 	}
+
 	if outlet.Equipment != "" {
 		return fmt.Errorf("Outlet is already in use (Equipment ID: %s)", outlet.Equipment)
 	}
+
 	fn := func(id string) interface{} {
 		eq.ID = id
 		outlet.Equipment = id
@@ -65,10 +61,11 @@ func (c *Controller) Create(eq Equipment) error {
 	if err := c.store.Create(Bucket, fn); err != nil {
 		return err
 	}
-	if err := c.outlets.Update(eq.Outlet, outlet); err != nil {
-		log.Println("Failed to configure outlet")
+	if err := c.claimOutlet(outlet, eq.ID); err != nil {
+		log.Println("Failed to claim outlet")
 		return err
 	}
+
 	if err := c.outlets.Configure(eq.Outlet, eq.On); err != nil {
 		log.Println("Failed to configure outlet")
 		return err
@@ -83,7 +80,15 @@ func (c *Controller) Update(id string, eq Equipment) error {
 	if err != nil {
 		return err
 	}
-	c.releaseOutlet(oldEq.Outlet)
+
+	if oldEq.Outlet != eq.Outlet {
+		outlet, err := c.outlets.Get(eq.Outlet)
+		if err != nil {
+			return fmt.Errorf("Outlet name %s not present", eq.Outlet)
+		}
+		c.releaseOutlet(oldEq.Outlet)
+		c.claimOutlet(outlet, id)
+	}
 
 	if err := c.store.Update(Bucket, id, eq); err != nil {
 		return err
@@ -127,5 +132,10 @@ func (c *Controller) releaseOutlet(outletID string) error {
 		return err
 	}
 	outlet.Equipment = ""
+	return c.outlets.Update(outlet.ID, outlet)
+}
+
+func (c *Controller) claimOutlet(outlet connectors.Outlet, equipmentID string) error {
+	outlet.Equipment = equipmentID
 	return c.outlets.Update(outlet.ID, outlet)
 }
