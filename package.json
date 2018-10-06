@@ -7,7 +7,7 @@
     "doc": "doc",
     "example": "examples"
   },
-  "devDependencies": {
+  "dependencies": {
     "autoprefixer": "^9.1.5",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.0.1",
@@ -72,7 +72,8 @@
     "standard": "./node_modules/.bin/standard --fix jsx/**/**",
     "jest": "cross-env NODE_ENV=testing ./node_modules/.bin/jest --coverage --all",
     "test": "cross-env NODE_ENV=testing jest --all --updateSnapshot --no-cache --coverage",
-    "sass-lint": "./node_modules/.bin/sass-lint 'assets/sass/**/*.scss' --verbose"
+    "sass-lint": "./node_modules/.bin/sass-lint 'assets/sass/**/*.scss' --verbose",
+    "heroku-postbuild": "webpack -p"
   },
   "repository": {
     "type": "git",
