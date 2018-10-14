@@ -6356,8 +6356,6 @@ body.auth-page, html.auth-page, #main-panel.auth-page {
 
 .navbar-reefpi {
   background-color: #279923; }
-  .navbar-reefpi a::first-letter {
-    text-transform: uppercase; }
 
 .navbar-reefpi .navbar-brand {
   color: #FFF; }
@@ -6365,8 +6363,6 @@ body.auth-page, html.auth-page, #main-panel.auth-page {
 .current-tab {
   border: none;
   cursor: default; }
-  .current-tab::first-letter {
-    text-transform: uppercase; }
 
 /* change the brand and text color */
 .navbar-reefpi .navbar-reefpi .navbar-text {
@@ -6410,9 +6406,9 @@ body.auth-page, html.auth-page, #main-panel.auth-page {
   padding: 10px; }
 
 #rpi-alert-container {
-  position: absolute;
-  width: 30%;
+  position: fixed;
   z-index: 100;
+  top: 10px;
   right: 10px; }
 
 .reef_pi_panel {
