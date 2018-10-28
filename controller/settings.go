@@ -27,7 +27,7 @@ type Settings struct {
 var DefaultSettings = Settings{
 	Name:            "reef-pi",
 	Interface:       "wlan0",
-	Address:         "0.0.0.0:80",
+	Address:         "0.0.0.0:",
 	Capabilities:    DefaultCapabilities,
 	RPI_PWMFreq:     100,
 	PCA9685_PWMFreq: 1500,
@@ -57,9 +57,13 @@ func initializeSettings(store types.Store) (Settings, error) {
 		DefaultSettings.Capabilities.Macro = true
 		DefaultSettings.Capabilities.Doser = true
 		DefaultSettings.Capabilities.Ph = true
+		port := os.Getenv("PORT")
+		if port == "" {
+			port = "8080"
+		}
+		DefaultSettings.Address = "0.0.0.0:" + port
 
-		DefaultSettings.Address = "0.0.0.0:8080"
-		log.Println("DEV_MODE environment variable set. Turning on dev_mode. Address set to localhost:8080")
+		log.Println("DEV_MODE environment variable set. Turning on dev_mode. Address set to " + DefaultSettings.Address)
 	}
 	if err := store.CreateBucket(Bucket); err != nil {
 		log.Println("ERROR:Failed to create bucket:", Bucket, ". Error:", err)

@@ -18,3 +18,4 @@ coverage.txt
 __snapshots__
 coverage
 .vscode
+vendor/*/

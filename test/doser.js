@@ -17,7 +17,7 @@ module.exports = {
       .type('.add-doser [name="duration"]')
       .type('.add-doser [name="duration"]', '15')
       .type('.add-doser [name="speed"]')
-      .type('.add-doser [name="speed"]', '50')
+      .type('.add-doser [name="speed"]',  '50')
       .wait(1000)
       .click('.add-doser input[type*="submit"]')
       .wait(500)

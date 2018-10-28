@@ -1,0 +1,158 @@
+{
+	"comment": "",
+	"heroku": {
+		"install": [
+			"./...",
+			"./vendor/...",
+			"./commands/..."
+		]
+	},
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "w6bUgvxIWIiJ+thC2KekHxb9ZGk=",
+			"path": "github.com/coreos/bbolt",
+			"revision": "7ee3ded59d4835e10f3e7d0f7603c42aa5e83820",
+			"revisionTime": "2018-09-12T20:56:54Z"
+		},
+		{
+			"checksumSHA1": "FrFUyTbM2HweMAfdLEig956GBK0=",
+			"path": "github.com/dustin/go-humanize",
+			"revision": "9f541cc9db5d55bce703bd99987c9d5cb8eea45e",
+			"revisionTime": "2018-06-22T23:30:57Z"
+		},
+		{
+			"checksumSHA1": "HmbftipkadrLlCfzzVQ+iFHbl6g=",
+			"path": "github.com/golang/glog",
+			"revision": "23def4e6c14b4da8ac2ed8007337bc5eb5007998",
+			"revisionTime": "2016-01-25T20:49:56Z"
+		},
+		{
+			"checksumSHA1": "p3IB18uJRs4dL2K5yx24MrLYE9A=",
+			"path": "github.com/google/go-querystring/query",
+			"revision": "44c6ddd0a2342c386950e880b658017258da92fc",
+			"revisionTime": "2018-09-16T13:16:37Z"
+		},
+		{
+			"checksumSHA1": "g/V4qrXjUGG9B+e3hB+4NAYJ5Gs=",
+			"path": "github.com/gorilla/context",
+			"revision": "08b5f424b9271eedf6f9f0ce86cb9396ed337a42",
+			"revisionTime": "2016-08-17T18:46:32Z"
+		},
+		{
+			"checksumSHA1": "Ld1fkCBbtUqRg3qu1gZKpP2OyO4=",
+			"path": "github.com/gorilla/mux",
+			"revision": "9e1f5955c0d22b55d9e20d6faa28589f83b2faca",
+			"revisionTime": "2018-09-03T15:43:05Z"
+		},
+		{
+			"checksumSHA1": "NScdwrIOpSH9hoP7i3a6JGmE5rw=",
+			"path": "github.com/gorilla/securecookie",
+			"revision": "bb1ab76598893258e90f45d8a708a2505a95af2a",
+			"revisionTime": "2018-09-13T20:06:11Z"
+		},
+		{
+			"checksumSHA1": "6m4FG6/CBx95fGpW/mOI9okoDK4=",
+			"path": "github.com/gorilla/sessions",
+			"revision": "f57b7e2d29c6211d16ffa52a0998272f75799030",
+			"revisionTime": "2018-09-28T12:20:16Z"
+		},
+		{
+			"checksumSHA1": "OTVejN292/CxMAy9HY/SKP8+Fpg=",
+			"path": "github.com/kidoman/embd",
+			"revision": "d3d8c0c5c68dc6caccebb7d720f36e64bafd0a62",
+			"revisionTime": "2017-05-08T01:30:40Z"
+		},
+		{
+			"checksumSHA1": "DgK0M6RDwMYB/ZwyjdUpYuurmZk=",
+			"path": "github.com/kidoman/embd/host/generic",
+			"revision": "d3d8c0c5c68dc6caccebb7d720f36e64bafd0a62",
+			"revisionTime": "2017-05-08T01:30:40Z"
+		},
+		{
+			"checksumSHA1": "kc8LfZL+cqLUxUpY+lxAJgxIWZg=",
+			"path": "github.com/kidoman/embd/host/rpi",
+			"revision": "d3d8c0c5c68dc6caccebb7d720f36e64bafd0a62",
+			"revisionTime": "2017-05-08T01:30:40Z"
+		},
+		{
+			"checksumSHA1": "6z9MgcvNbdVGsAIvv6BHA1uALQA=",
+			"path": "github.com/nfnt/resize",
+			"revision": "83c6a9932646f83e3267f353373d47347b6036b2",
+			"revisionTime": "2018-02-21T19:10:11Z"
+		},
+		{
+			"checksumSHA1": "ng/TujdUN5VdMQMWR52olbFRHgo=",
+			"path": "github.com/reef-pi/adafruitio",
+			"revision": "a3cae37cdd642db938f1d3cb59cbd1da89e6fb79",
+			"revisionTime": "2017-10-07T06:41:30Z"
+		},
+		{
+			"checksumSHA1": "Gf3DYiXWLwHGFvSzDX7mr8aMWTc=",
+			"path": "github.com/reef-pi/drivers",
+			"revision": "5884ae0c2d39f05ebad8d30f0a966691e64e878b",
+			"revisionTime": "2018-02-20T06:26:20Z"
+		},
+		{
+			"checksumSHA1": "KlbllxScJwoDKVhZFse+3pzFPLU=",
+			"path": "github.com/reef-pi/rpi/i2c",
+			"revision": "d8897217282761d199a54edd499c1a0146bc31d4",
+			"revisionTime": "2018-09-17T04:15:07Z"
+		},
+		{
+			"checksumSHA1": "wqGMeY5Ca2jFV0+o1Mee9CmIHc0=",
+			"path": "github.com/reef-pi/rpi/pwm",
+			"revision": "d8897217282761d199a54edd499c1a0146bc31d4",
+			"revisionTime": "2018-09-17T04:15:07Z"
+		},
+		{
+			"checksumSHA1": "KUrV5Esg6Wdcrv+hDc6/p0Q3/qw=",
+			"path": "github.com/shirou/gopsutil",
+			"revision": "a11c78ba2c13c5b1ee59c53296ba35f92f0ce658",
+			"revisionTime": "2018-09-27T12:43:08Z"
+		},
+		{
+			"checksumSHA1": "GR7l7Ez4ppxIfonl7aJayYRVPWc=",
+			"path": "github.com/shirou/gopsutil/internal/common",
+			"revision": "a11c78ba2c13c5b1ee59c53296ba35f92f0ce658",
+			"revisionTime": "2018-09-27T12:43:08Z"
+		},
+		{
+			"checksumSHA1": "q0o4cpjNszHkZqfSHi83a668CSw=",
+			"path": "github.com/shirou/gopsutil/load",
+			"revision": "a11c78ba2c13c5b1ee59c53296ba35f92f0ce658",
+			"revisionTime": "2018-09-27T12:43:08Z"
+		},
+		{
+			"checksumSHA1": "gGB1nTLAIFGWOwzfYSkaONzn52k=",
+			"path": "github.com/shirou/gopsutil/mem",
+			"revision": "a11c78ba2c13c5b1ee59c53296ba35f92f0ce658",
+			"revisionTime": "2018-09-27T12:43:08Z"
+		},
+		{
+			"checksumSHA1": "ko2jS+S73n4qhQpABo/AnQaSQfo=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "4497e2df6f9e69048a54498c7affbbec3294ad47",
+			"revisionTime": "2018-10-05T07:04:52Z"
+		},
+		{
+			"checksumSHA1": "Y7nctMxT58lRM78VtElPerhcnEs=",
+			"path": "golang.org/x/sys/windows",
+			"revision": "e4b3c5e9061176387e7cea65e4dc5853801f3fb7",
+			"revisionTime": "2018-09-28T10:55:38Z"
+		},
+		{
+			"checksumSHA1": "CzLpoHWYgSP+mT3bcW/jt8epp5I=",
+			"path": "gopkg.in/robfig/cron.v2",
+			"revision": "be2e0b0deed5a68ffee390b4583a13aff8321535",
+			"revisionTime": "2015-01-07T22:02:07Z"
+		},
+		{
+			"checksumSHA1": "ZSWoOPUNRr5+3dhkLK3C4cZAQPk=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "5420a8b6744d3b0345ab293f6fcba19c978f1183",
+			"revisionTime": "2018-03-28T19:50:20Z"
+		}
+	],
+	"rootPath": "github.com/reef-pi/reef-pi"
+}
